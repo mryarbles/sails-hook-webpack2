@@ -61,6 +61,8 @@ module.exports = function (sails) {
     stats: 'errors-only'
   });
 
+  console.log('sails-hook-webpack3 optoins:', options);
+
   // Create webpack compiler
   hook.compiler = webpack(options, (err, stats) => {
     if (err) {
