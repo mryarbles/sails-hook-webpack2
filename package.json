@@ -1,7 +1,7 @@
 {
-  "name": "sails-hook-webpack2",
-  "version": "1.1.0",
-  "description": "Webpack 2.x asset pipeline hook for Sails.js",
+  "name": "sails-hook-webpack3",
+  "version": "1.0.0",
+  "description": "Webpack 3.x asset pipeline hook for Sails.js",
   "keywords": [
     "sails",
     "webpack"
@@ -16,10 +16,10 @@
     "email": "pascal@lewebsimple.ca"
   },
   "dependencies": {
-    "webpack": "^2.2.0",
-    "webpack-dev-server": "^2.2.0",
-    "webpack-hot-middleware": "^2.15.0",
-    "webpack-merge": "^2.4.0"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4",
+    "webpack-hot-middleware": "^2.21.0",
+    "webpack-merge": "^4.1.0"
   },
   "sails": {
     "isHook": true,

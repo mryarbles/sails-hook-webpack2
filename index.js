@@ -13,7 +13,7 @@ module.exports = function (sails) {
   // Sails hook specification
   const hook = {
     emitReady: false,
-    afterBuild(err, stats) {
+    afterBuild: function(err, stats){
       if (err) return sails.log.error('sails-hook-webpack2: Build error:\n', err);
       // Emit events
       if (!this.emitReady) {
@@ -74,7 +74,7 @@ module.exports = function (sails) {
     }
     else {
       sails.log.info('sails-hook-webpack2: Watching for changes...');
-      hook.compiler.watch(hookOptions.watch, hook.afterBuild.bind(hook));
+      hook.compiler.watch(options.watch, hook.afterBuild.bind(hook));
     }
   });
 
