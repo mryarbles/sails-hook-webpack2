@@ -96,5 +96,7 @@ module.exports = function (sails) {
     sails.log.info('sails-hook-webpack2: Server listening on http://' + host + ':' + config.port);
   }
 
+  console.log('')
+
   return hook;
 };
