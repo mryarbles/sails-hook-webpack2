@@ -16,8 +16,8 @@
     "email": "pascal@lewebsimple.ca"
   },
   "dependencies": {
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.4",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.0"
   },

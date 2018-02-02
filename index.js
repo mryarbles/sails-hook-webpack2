@@ -1,12 +1,14 @@
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 
+const NPM_NAME = 'sails-hook-webpack';
+
 module.exports = function (sails) {
 
   // Validate hook configuration
   if (!sails.config.webpack || !sails.config.webpack.options) {
-    sails.log.warn('sails-hook-webpack2: No webpack options have been defined.');
-    sails.log.warn('sails-hook-webpack2: Please configure your config/webpack.js file.');
+    sails.log.warn(`${ NPM_NAME }: No webpack options have been defined.`);
+    sails.log.warn(`${ NPM_NAME }: Please configure your config/webpack.js file.`);
     return {};
   }
 
@@ -14,21 +16,21 @@ module.exports = function (sails) {
   const hook = {
     emitReady: false,
     afterBuild: function(err, stats){
-      if (err) return sails.log.error('sails-hook-webpack2: Build error:\n', err);
+      if (err) return sails.log.error(`${ NPM_NAME }: Build error:\n`, err);
       // Emit events
       if (!this.emitReady) {
-        sails.emit('hook:sails-hook-webpack2:compiler-ready', {});
+        sails.emit(`hook:${ NPM_NAME }:compiler-ready`, {});
         this.emitReady = true;
       }
-      sails.emit('hook:sails-hook-webpack2:after-build', stats);
+      sails.emit(`hook:${ NPM_NAME }:after-build`, stats);
       // Display information, errors and warnings
-      stats = stats.toJSON();
-      sails.log.info('sails-hook-webpack2: Build complete.');
-      if (stats.warnings.length > 0) {
-        sails.log.warn('sails-hook-webpack2: Build warnings:\n', stats.warnings);
+
+      sails.log.info(`${ NPM_NAME }: Build complete.`);
+      if (stats && stats.warnings && stats.warnings.length > 0) {
+        sails.log.warn(`${ NPM_NAME }: Build warnings:\n`, stats.warnings);
       }
-      if (stats.errors.length > 0) {
-        sails.log.error('sails-hook-webpack2: Build errors:\n', stats.errors);
+      if (stats && stats.errors && stats.errors.length > 0) {
+        sails.log.error(`${ NPM_NAME }: Build errors:\n`, stats.errors);
       }
     }
   };
@@ -61,21 +63,19 @@ module.exports = function (sails) {
     stats: 'errors-only'
   });
 
-  console.log('sails-hook-webpack3 optoins:', options);
-
   // Create webpack compiler
   hook.compiler = webpack(options, (err, stats) => {
     if (err) {
-      sails.log.error('sails-hook-webpack2: Configuration error:\n', err);
+      sails.log.error(`${ NPM_NAME }: Configuration error:\n`, err);
       return {};
     }
-    sails.log.info('sails-hook-webpack2: Webpack configured successfully.');
+    sails.log.info(`${ NPM_NAME }: Webpack configured successfully.`);
     if (environment === 'production') {
-      sails.log.info('sails-hook-webpack2: Building for production...');
+      sails.log.info(`${ NPM_NAME }: Building for production...`);
       hook.compiler.run(hook.afterBuild.bind(hook));
     }
     else {
-      sails.log.info('sails-hook-webpack2: Watching for changes...');
+      sails.log.info(`${ NPM_NAME }: Watching for changes...`);
       hook.compiler.watch(options.watch, hook.afterBuild.bind(hook));
     }
   });
@@ -88,15 +88,14 @@ module.exports = function (sails) {
       hot: true,
       port: 3000
     };
-    Object.assign(config, sails.config.webpack.server);
+
+    config = Object.assign(config, sails.config.webpack.server);
 
     // Listen on specific port
     hook.server = new WebpackDevServer(hook.compiler, config);
     hook.server.listen(config.port);
-    sails.log.info('sails-hook-webpack2: Server listening on http://' + host + ':' + config.port);
+    sails.log.info(`${ NPM_NAME }: Webpack Dev Server listening on http://${host}: ${ config.port}`);
   }
-
-  console.log('')
 
   return hook;
 };
