@@ -1,8 +1,8 @@
-# sails-hook-webpack2
+# sails-hook-webpack3
 
 [![NPM version][npm-image]][npm-url]
 
-Webpack 2.x asset pipeline hook for Sails.js
+Webpack 3.x asset pipeline hook for Sails.js
 
 ## Getting started
 
@@ -112,8 +112,8 @@ module.exports.webpack = {
 
 This hook provides events that can be listened to by using [`sails.on()`](https://github.com/balderdashy/sails/blob/master/lib/EVENTS.md#usage)
 
-- **hook:sails-hook-webpack2:compiler-ready**  - emitted when the compiler is initialised and ready, usually after the first build event.
-- **hook:sails-hook-webpack2:after-build** - emitted after each webpack build, the event data includes the webpack build stats.
+- **hook:sails-hook-webpack:compiler-ready**  - emitted when the compiler is initialised and ready, usually after the first build event.
+- **hook:sails-hook-webpack:after-build** - emitted after each webpack build, the event data includes the webpack build stats.
 
 ## License
 MIT
