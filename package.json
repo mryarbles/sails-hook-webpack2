@@ -9,7 +9,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mryarbles/sails-hook-webpack2.git"
+    "url": "git+https://github.com/lewebsimple/sails-hook-webpack2.git"
   },
   "author": {
     "name": "Pascal Martineau",
