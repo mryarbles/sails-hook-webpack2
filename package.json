@@ -1,6 +1,6 @@
 {
   "name": "sails-hook-webpack3",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Webpack 3.x asset pipeline hook for Sails.js",
   "keywords": [
     "sails",
@@ -9,12 +9,18 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lewebsimple/sails-hook-webpack2.git"
+    "url": "git+https://github.com/mryarbles/sails-hook-webpack3.git"
   },
-  "author": {
-    "name": "Pascal Martineau",
-    "email": "pascal@lewebsimple.ca"
-  },
+  "contributors": [
+    {
+      "name": "Pascal Martineau",
+      "email": "pascal@lewebsimple.ca"
+    },
+    {
+      "name": "Luke Grannis",
+      "email": "mryarbles@gmail.com"
+    }
+  ],
   "dependencies": {
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
@@ -27,7 +33,7 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lewebsimple/sails-hook-webpack2/issues"
+    "url": "https://github.com/mryarbles/sails-hook-webpack3/issues"
   },
-  "homepage": "https://github.com/lewebsimple/sails-hook-webpack2#readme"
+  "homepage": "https://github.com/mryarbles/sails-hook-webpack3#readme"
 }
