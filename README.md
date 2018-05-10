@@ -9,7 +9,7 @@ Webpack 3.x asset pipeline hook for Sails.js
 Install this package via npm:
 
 ```sh
-npm install --save sails-hook-webpack2
+npm install --save sails-hook-webpack3
 ```
 
 Disable the Sails grunt hook (you can also create your Sails project using the [--no-frontend](http://sailsjs.com/documentation/reference/command-line-interface/sails-new) flag):
