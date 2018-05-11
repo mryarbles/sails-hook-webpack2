@@ -36,7 +36,7 @@ module.exports = function (sails) {
   };
 
   const environment = process.env.NODE_ENV || 'development';
-  const host = sails.getHost() || 'localhost';
+  const host = sails.config.host || 'localhost';
   const port = sails.config.port || 1337;
 
   // Webpack options
